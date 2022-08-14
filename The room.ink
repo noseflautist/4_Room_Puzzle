@@ -1,4 +1,3 @@
-
 ->NWroom
 
 
@@ -169,8 +168,10 @@ The room is full of plates of delicious fresh red meat.
 
 + Check what you're carrying.
 -> inventory ->SEroom
-+ Pick up a plate of meat.
-->meat ->SEroom
++ Pick up {not meat: a} {meat: another} plate of meat.
+{not meat: ->meat ->SEroom}
+{not infinimeat: ->infinimeat ->SEroom}
+{infinimeat: ->infinimeat2 ->SEroom}
 + Go through the western doorway.
 -> SWroom
 + Go through the northern doorway.
@@ -179,11 +180,35 @@ The room is full of plates of delicious fresh red meat.
 
 =meat
 
-You pick up a plate of meat. 
-There are plenty more plates of meat. 
-Maybe you will never run out of plates of meat. 
-Maybe there is infinite meat. 
+You pick up a plate of meat.
+There are plenty more plates of meat.
+Maybe you will never run out of plates of meat.
+Maybe there is infinite meat.
 + [Perhaps don't think about it too hard.]
+
 ->->
 
+=infinimeat
+
+You pick up another plate of meat.
+There are plenty more plates of meat.
+Maybe you will never run out of plates of meat.
+Maybe there is infinite meat.
+Maybe there was, but now there is (infinity - 1) meat.
++ [Didn't I say don't think about it too hard?]
+
+->->
+
+=infinimeat2
+
+You pick up another plate of meat.
+There are plenty more plates of meat.
+You are pretty certain you will never run out of plates of meat.
+You are pretty certain there is (infinity - 2) meat.
+You are not very certain whether that means there is actually less meat now than there was before, because if you take two away from infinity, doesn't that NOT change the fact that it was infinity already to begin with?
++ [Oops, you thought about it too hard.]
+
+->paradoxenter
+
+->->
 
