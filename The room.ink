@@ -171,7 +171,8 @@ The room is full of plates of delicious fresh red meat.
 + Pick up {not meat: a} {meat: another} plate of meat.
 {not meat: ->meat ->SEroom}
 {not infinimeat: ->infinimeat ->SEroom}
-{infinimeat: ->infinimeat2 ->SEroom}
+{not infinimeat2: ->infinimeat2 ->SEroom}
+{infinimeat2: -> paradoxvisited -> SEroom}
 + Go through the western doorway.
 -> SWroom
 + Go through the northern doorway.
