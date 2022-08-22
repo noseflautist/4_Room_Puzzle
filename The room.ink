@@ -103,7 +103,7 @@ You pick up the sponge. This will be good for cleaning things.
 =Room2Blue
 
 You are in a green room. 
-There is a doorway to the west, and a doorway to the south. 
+There is a doorway to the east, and a doorway to the west. 
 There is an angry man in the corner, holding a blue key.
 
 + Talk to the man. 
@@ -149,7 +149,7 @@ There is an angry man in the corner, holding a blue key.
 =Room3Red
 
 You are in a red room. 
-There is a doorway to the north, and a doorway to the west. 
+There is a doorway to the east, and a doorway to the west. 
 The room is full of plates of delicious fresh red meat.
 
 
@@ -202,7 +202,7 @@ You are not very certain whether that means there is actually less meat now than
 
 =Room4Yellow
 
-You are in a yellow room. There is a doorway to the north, and a doorway to the east. 
+You are in a yellow room. There is a doorway to the east, and a doorway to the west. 
 {not sponge: There is a sponge on the floor.}
 {not bucket: There is a bucket of soapy water on the floor.}
 * {not bucket} Pick up the bucket.
