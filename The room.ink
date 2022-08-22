@@ -1,10 +1,10 @@
-->NWroom
+->Room1Blue
 
 
 =inventory
 
 In your inventory, you have:
-A working compass,
+{not looped_around_rooms:A working compass,}{looped_around_rooms: A working compass?} //TODO: Click on the compass to do some cool shit? Maybe only while you're in paradox?
 {bucket: a bucket full of warm soapy water,}
 {sponge: a sponge,}
 {meat: lots of delicious fresh red meat,}
@@ -13,38 +13,42 @@ A working compass,
 
 ->->
 
+VAR looped_around_rooms = false
+VAR first_loop_event_done = false
 
-=NWroom
+=Room1Blue //was NWroom
 
-You are in a blue room. There is a  big blue {not cleandoor: dirty} {cleandoor: clean} sentient {not unlock: locked} {unlock: unlocked} door, {not dogmeat: guarded by a nice doggy.} {dogmeat: and there is a nice happy dog eating red meat who loves you and will let you past.} 
-There are two other open doorways, one to the south, and one to the east (lucky you have your compass!)
+You are in a blue room. There is a big blue {not cleandoor: dirty} {cleandoor: clean} sentient {not unlock: locked} {unlock: unlocked} door, {not dogmeat: guarded by a nice doggy.} {dogmeat: and there is a nice happy dog eating red meat who loves you and will let you past.} 
+{looped_around_rooms && not first_loop_event_done:<i>Wait... haven't you seen this before?</i>}
+~ first_loop_event_done = true
+There is one other open doorway to the east (lucky you have your compass{not looped_around_rooms:!}{looped_around_rooms:...?})
+{looped_around_rooms: There doesn't seem to be a doorway to the west.}
 What should you do?
 + Talk to Doggy.
-->talkdoggy ->NWroom
+->talkdoggy ->Room1Blue
 + Talk to the door.
-->talkdoor ->NWroom
+->talkdoor ->Room1Blue
 * {sponge and bucket and not cleandoor} Clean the dirty blue door.
 ->cleandoor
 * {key and not unlock} Use the blue key to unlock the blue door.
 ->unlock
-+ Check what you're carrying.
--> inventory ->NWroom
-+ Go through the southern doorway.
-->SWroom
+//+ Go through the southern doorway.
+//->Room4Yellow
 + Go through the eastern doorway.
-->NEroom
-
+->Room2Blue
++ Check what you're carrying.
+-> inventory ->Room1Blue
 
 =cleandoor
 
 You clean the door. While you do, the door makes all sorts of groans and sighs. 
 "Oh, thank you!" says the door. "I'm clean now!"
-->NWroom
+->Room1Blue
 
 =unlock
 
 You put the blue key in the door, and turn it. The door is now unlocked. 
-->NWroom
+->Room1Blue
 
 =talkdoggy
 "Hi doggy!"
@@ -68,7 +72,7 @@ He likes you now.
 He'll let you leave.
 
 + ["I like you too, doggy!"]
-->NWroom 
+->Room1Blue 
 
 =talkdoor
 + "Hello door!"
@@ -83,22 +87,6 @@ He'll let you leave.
 "How am I, otherwise? I'm fine, dear."
 ->->
 
-=SWroom
-
-You are in a yellow room. There is a doorway to the north, and a doorway to the East. 
-{not sponge: There is a sponge on the floor.}
-{not bucket: There is a bucket of soapy water on the floor.}
-+ Check what you're carrying.
--> inventory ->SWroom
-* {not bucket} Pick up the bucket.
-->bucket ->SWroom
-* {not sponge} Pick up the sponge.
-->sponge ->SWroom
-+ Go through the northern doorway.
-->NWroom
-+ Go through the eastern doorway.
-->SEroom
-
 
 =bucket
 
@@ -112,21 +100,20 @@ You pick up the sponge. This will be good for cleaning things.
 
 ->->
 
-=NEroom
+=Room2Blue
 
 You are in a green room. 
 There is a doorway to the west, and a doorway to the south. 
 There is an angry man in the corner, holding a blue key.
 
 + Talk to the man. 
-->manchat ->NEroom
-+ Check what you're carrying.
--> inventory ->NEroom
+->manchat ->Room2Blue
++ Go through the eastern doorway.
+-> Room3Red
 + Go through the western doorway.
--> NWroom
-+ Go through the southern doorway.
--> SEroom
-
+-> Room1Blue
++ Check what you're carrying.
+-> inventory ->Room2Blue
 
 =manchat
 
@@ -159,24 +146,24 @@ There is an angry man in the corner, holding a blue key.
         
 ->END
 
-=SEroom
+=Room3Red
 
 You are in a red room. 
 There is a doorway to the north, and a doorway to the west. 
 The room is full of plates of delicious fresh red meat.
 
 
-+ Check what you're carrying.
--> inventory ->SEroom
 + Pick up {not meat: a} {meat: another} plate of meat.
-{not meat: ->meat ->SEroom}
-{not infinimeat: ->infinimeat ->SEroom}
-{not infinimeat2: ->infinimeat2 ->SEroom}
-{infinimeat2: -> paradoxvisited -> SEroom}
+{not meat: ->meat ->Room3Red}
+{not infinimeat: ->infinimeat ->Room3Red}
+{not infinimeat2: ->infinimeat2 ->Room3Red}
+{infinimeat2: -> paradoxvisited -> Room3Red}
++ Go through the eastern doorway.
+-> Room4Yellow
 + Go through the western doorway.
--> SWroom
-+ Go through the northern doorway.
--> NEroom
+-> Room2Blue
++ Check what you're carrying.
+-> inventory ->Room3Red
 
 
 =meat
@@ -213,3 +200,19 @@ You are not very certain whether that means there is actually less meat now than
 
 ->->
 
+=Room4Yellow
+
+You are in a yellow room. There is a doorway to the north, and a doorway to the east. 
+{not sponge: There is a sponge on the floor.}
+{not bucket: There is a bucket of soapy water on the floor.}
+* {not bucket} Pick up the bucket.
+->bucket ->Room4Yellow
+* {not sponge} Pick up the sponge.
+->sponge ->Room4Yellow
++ Go through the eastern doorway.
+~ looped_around_rooms = true
+->Room1Blue
++ Go through the western doorway.
+->Room3Red
++ Check what you're carrying.
+-> inventory ->Room4Yellow
