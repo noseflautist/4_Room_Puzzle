@@ -18,9 +18,14 @@ VAR first_loop_event_done = false
 
 =Room1Blue //was NWroom
 
-You are in a blue room. There is a big blue {not cleandoor: dirty} {cleandoor: clean} sentient {not unlock: locked} {unlock: unlocked} door, {not dogmeat: guarded by a nice doggy.} {dogmeat: and there is a nice happy dog eating red meat who loves you and will let you past.} 
-{looped_around_rooms && not first_loop_event_done:<i>Wait... haven't you seen this before?</i>}
-~ first_loop_event_done = true
+You are in a blue room. There is a big blue {not cleandoor: dirty} {cleandoor: clean} sentient {not unlock: locked} {unlock: unlocked} door, {not dogmeat: guarded by a nice doggy.} {dogmeat: and there is a nice happy dog eating red meat who loves you and will let you past.}
+
+    {looped_around_rooms && not first_loop_event_done:<i>Wait... haven't you seen this before?</i>}
+    
+    {looped_around_rooms && not first_loop_event_done:
+        ~ first_loop_event_done = true
+    } //Make sure "Wait... haven't you seen this before?" only shows once.
+
 There is one other open doorway to the east (lucky you have your compass{not looped_around_rooms:!}{looped_around_rooms:...?})
 {looped_around_rooms: There doesn't seem to be a doorway to the west.}
 What should you do?
@@ -35,7 +40,7 @@ What should you do?
 //+ Go through the southern doorway.
 //->Room4Yellow
 + Go through the eastern doorway.
-->Room2Blue
+->Room2Green
 + Check what you're carrying.
 -> inventory ->Room1Blue
 
@@ -100,20 +105,20 @@ You pick up the sponge. This will be good for cleaning things.
 
 ->->
 
-=Room2Blue
+=Room2Green
 
 You are in a green room. 
-There is a doorway to the east, and a doorway to the west. 
 There is an angry man in the corner, holding a blue key.
+There is a doorway to the east, and a doorway to the west. 
 
 + Talk to the man. 
-->manchat ->Room2Blue
+->manchat ->Room2Green
 + Go through the eastern doorway.
 -> Room3Red
 + Go through the western doorway.
 -> Room1Blue
 + Check what you're carrying.
--> inventory ->Room2Blue
+-> inventory ->Room2Green
 
 =manchat
 
@@ -149,9 +154,8 @@ There is an angry man in the corner, holding a blue key.
 =Room3Red
 
 You are in a red room. 
-There is a doorway to the east, and a doorway to the west. 
 The room is full of plates of delicious fresh red meat.
-
+There is a doorway to the east, and a doorway to the west.
 
 + Pick up {not meat: a} {meat: another} plate of meat.
 {not meat: ->meat ->Room3Red}
@@ -161,7 +165,7 @@ The room is full of plates of delicious fresh red meat.
 + Go through the eastern doorway.
 -> Room4Yellow
 + Go through the western doorway.
--> Room2Blue
+-> Room2Green
 + Check what you're carrying.
 -> inventory ->Room3Red
 
@@ -202,9 +206,10 @@ You are not very certain whether that means there is actually less meat now than
 
 =Room4Yellow
 
-You are in a yellow room. There is a doorway to the east, and a doorway to the west. 
+You are in a yellow room.
 {not sponge: There is a sponge on the floor.}
 {not bucket: There is a bucket of soapy water on the floor.}
+There is a doorway to the east, and a doorway to the west.
 * {not bucket} Pick up the bucket.
 ->bucket ->Room4Yellow
 * {not sponge} Pick up the sponge.
