@@ -39,6 +39,8 @@ What should you do?
 ->unlock
 //+ Go through the southern doorway.
 //->Room4Yellow
+* {unlock and cleandoor and dogmeat} YOU CAN OPEN THE SENTIENT DOOR AND LEAVE IF YOU WISH!
+->endgame
 + Go through the eastern doorway.
 ->Room2Green
 + Check what you're carrying.
@@ -221,3 +223,50 @@ There is a doorway to the east, and a doorway to the west.
 ->Room3Red
 + Check what you're carrying.
 -> inventory ->Room4Yellow
+
+
+
+=endgame
+
+You open the big blue clean sentient unlocked door, and step out of the Puzzle Rooms, free at last.
+It was an escape room type place. The staff member asks you to complete a satisfaction survey.
+
++ "NEVER! I REFUSE! HAHAHAHAHAHAH GOODBYE FOREVER!"
+->youleave
++ "I rate it 5 stars."
+->starrating5
++ "I rate it 4 stars."
+->starrating
++ "I rate it 3 stars."
+->starrating
++ "I rate it 2 stars."
+->starrating
++ "I rate it 1 star."
+->starrating
+
+
+
+=starrating
+
+You fill out the survey with your rating.
+->youleave
+
+
+
+=starrating5
+
+You fill out the survey with your rating.
+->youleave
+
+
+=youleave
+
+You walk out the front door of the building.
+
+THE END.
+
+CONGRATULATIONS!
+
+{starrating5: ACHIEVEMENT UNLOCK! YOU GOT THE PERFECT ENDING!}
+
+->DONE
