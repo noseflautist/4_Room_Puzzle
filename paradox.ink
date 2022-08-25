@@ -11,7 +11,7 @@ You have slipped into a paradox!
 The decor's kinda grey and indistinct.
 
 + [Climb out of the paradox]
-
+...
 ->->
 
 =paradoxvisited

@@ -4,13 +4,13 @@
 =inventory
 
 In your inventory, you have:
-{not looped_around_rooms:A working compass,}{looped_around_rooms: A working compass?} //TODO: Click on the compass to do some cool shit? Maybe only while you're in paradox?
+{not looped_around_rooms:A working compass,}{looped_around_rooms: A working (?) compass} //TODO: Click on the compass to do some cool shit? Maybe only while you're in paradox?
 {bucket: a bucket full of warm soapy water,}
 {sponge: a sponge,}
 {meat: lots of delicious fresh red meat,}
 {key: a blue key,}
 + [and that's everything.]
-
+...
 ->->
 
 VAR looped_around_rooms = false
@@ -29,21 +29,21 @@ You are in a blue room. There is a big blue {not cleandoor: dirty} {cleandoor: c
 There is one other open doorway to the east (lucky you have your compass{not looped_around_rooms:!}{looped_around_rooms:...?})
 {looped_around_rooms: There doesn't seem to be a doorway to the west.}
 What should you do?
-+ Talk to Doggy.
++ Talk to doggy
 ->talkdoggy ->Room1Blue
-+ Talk to the door.
++ Talk to the door
 ->talkdoor ->Room1Blue
-* {sponge and bucket and not cleandoor} Clean the dirty blue door.
+* {sponge and bucket and not cleandoor} Clean the dirty blue door
 ->cleandoor
-* {key and not unlock} Use the blue key to unlock the blue door.
+* {key and not unlock} Use the blue key to unlock the blue door
 ->unlock
 //+ Go through the southern doorway.
 //->Room4Yellow
 * {unlock and cleandoor and dogmeat} YOU CAN OPEN THE SENTIENT DOOR AND LEAVE IF YOU WISH!
 ->endgame
-+ Go through the eastern doorway.
++ Go through the eastern doorway
 ->Room2Green
-+ Check what you're carrying.
++ Check what you're carrying
 -> inventory ->Room1Blue
 
 =cleandoor
@@ -64,9 +64,11 @@ The dog wags its tail.
 * {meat} Give the dog some of the delicious red meat you have.
 ->dogmeat
 + {not meat} This dog is a guard dog. He won't let you leave until you give him something he wants.
+...
 ->->
 + {dogmeat} The dog loves you! Hooray! 
     You give him pats.
+...
 ->->
 
 
@@ -86,12 +88,14 @@ He'll let you leave.
 "Hello!"
 + + "How are you?"
 {not cleandoor: "Oh, ohhh, I'm soooo dirty, I simply WON'T open unless I get MUCH cleaner first."} {cleandoor: "Oh, ohh, I'm soooo CLEAN, I'm simply SPARKLING, thank you SO much for sponging me up and down."}
-"I see."
++ + + "I see."
 {not unlock: "I'm locked, you should know. There's a blue key out there somewhere that will unlock me."} {unlock: "You unlocked me! How sweet of you! I like you SO much more now!"}
-"Interesting."
++ + + + "Interesting."
 {not dogmeat: "That doggy there, I'm afraid it just WON'T let you past until you get it something to eat."} {dogmeat: "You fed that sweet puppy some red meat! How KIND of you! I think he'll just ADORE you FOREVER now!"}
-"Fascinating."
++ + + + + "Fascinating."
 "How am I, otherwise? I'm fine, dear."
+
+...
 ->->
 
 
@@ -99,27 +103,29 @@ He'll let you leave.
 
 You pick up the bucket. It is full of warm soapy water. This will be good for cleaning things.
 
+...
 ->->
 
 =sponge
 
 You pick up the sponge. This will be good for cleaning things.
 
+...
 ->->
 
 =Room2Green
 
 You are in a green room. 
-There is an angry man in the corner, holding a blue key.
+There is an angry man in the corner{key:.}{not key:, holding a blue key.}
 There is a doorway to the east, and a doorway to the west. 
 
-+ Talk to the man. 
++ Talk to the man
 ->manchat ->Room2Green
-+ Go through the eastern doorway.
++ Go through the eastern doorway
 -> Room3Red
-+ Go through the western doorway.
++ Go through the western doorway
 -> Room1Blue
-+ Check what you're carrying.
++ Check what you're carrying
 -> inventory ->Room2Green
 
 =manchat
@@ -133,7 +139,10 @@ There is a doorway to the east, and a doorway to the west.
     + + ["That sounds terrible. You poor thing."]
         "Grr! Grr!"
         + + + [He doesn't say anything else. Oh well.]
-    ->->
+        
+        ...
+        
+        ->->
 
 =key
 
@@ -159,16 +168,16 @@ You are in a red room.
 The room is full of plates of delicious fresh red meat.
 There is a doorway to the east, and a doorway to the west.
 
-+ Pick up {not meat: a} {meat: another} plate of meat.
++ Pick up {not meat: a} {meat: another} plate of meat
 {not meat: ->meat ->Room3Red}
 {not infinimeat: ->infinimeat ->Room3Red}
 {not infinimeat2: ->infinimeat2 ->Room3Red}
 {infinimeat2: -> paradoxvisited -> Room3Red}
-+ Go through the eastern doorway.
++ Go through the eastern doorway
 -> Room4Yellow
-+ Go through the western doorway.
++ Go through the western doorway
 -> Room2Green
-+ Check what you're carrying.
++ Check what you're carrying
 -> inventory ->Room3Red
 
 
@@ -180,6 +189,7 @@ Maybe you will never run out of plates of meat.
 Maybe there is infinite meat.
 + [Perhaps don't think about it too hard.]
 
+...
 ->->
 
 =infinimeat
@@ -191,6 +201,7 @@ Maybe there is infinite meat.
 Maybe there was, but now there is (infinity - 1) meat.
 + [Didn't I say don't think about it too hard?]
 
+...
 ->->
 
 =infinimeat2
@@ -204,6 +215,7 @@ You are not very certain whether that means there is actually less meat now than
 
 ->paradoxenter
 
+...
 ->->
 
 =Room4Yellow
@@ -212,16 +224,16 @@ You are in a yellow room.
 {not sponge: There is a sponge on the floor.}
 {not bucket: There is a bucket of soapy water on the floor.}
 There is a doorway to the east, and a doorway to the west.
-* {not bucket} Pick up the bucket.
+* {not bucket} Pick up the bucket
 ->bucket ->Room4Yellow
-* {not sponge} Pick up the sponge.
+* {not sponge} Pick up the sponge
 ->sponge ->Room4Yellow
-+ Go through the eastern doorway.
++ Go through the eastern doorway
 ~ looped_around_rooms = true
 ->Room1Blue
-+ Go through the western doorway.
++ Go through the western doorway
 ->Room3Red
-+ Check what you're carrying.
++ Check what you're carrying
 -> inventory ->Room4Yellow
 
 
