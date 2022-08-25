@@ -50,6 +50,7 @@ What should you do?
 
 You clean the door. While you do, the door makes all sorts of groans and sighs. 
 "Oh, thank you!" says the door. "I'm clean now!"
+...
 ->Room1Blue
 
 =unlock
