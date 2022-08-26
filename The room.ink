@@ -281,7 +281,8 @@ You fill out the survey with your rating.
 
 You walk out the front door of the building.
 
-THE END.
+# CLASS: end
+The End
 
 CONGRATULATIONS!
 
