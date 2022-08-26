@@ -241,6 +241,8 @@ There is a doorway to the east, and a doorway to the west.
 ->bucket ->Room4Yellow
 * {not sponge} Pick up the sponge
 ->sponge ->Room4Yellow
++ And that's all.
+->Room4Yellow
 
 =endgame
 
