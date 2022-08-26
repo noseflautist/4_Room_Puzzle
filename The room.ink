@@ -17,8 +17,9 @@ VAR looped_around_rooms = false
 VAR first_loop_event_done = false
 
 =Room1Blue //was NWroom
+#IMAGE: bluedoor.jpg
 
-You are in a blue room. There is a big blue {not cleandoor: dirty} {cleandoor: clean} sentient {not unlock: locked} {unlock: unlocked} door, {not dogmeat: guarded by a nice doggy.} {dogmeat: and there is a nice happy dog eating red meat who loves you and will let you past.}
+You are in a blue room. There is a  big blue {not cleandoor: dirty} {cleandoor: CLEAN} sentient {not unlock: locked} {unlock: UNLOCKED} door, {not dogmeat: guarded by a nice doggy.} {dogmeat: NO LONGER GUARDED BY a nice happy dog eating red meat who loves you and will let you past.} 
 
     {looped_around_rooms && not first_loop_event_done:<i>Wait... haven't you seen this before?</i>}
     
@@ -40,6 +41,7 @@ What should you do?
 //+ Go through the southern doorway.
 //->Room4Yellow
 * {unlock and cleandoor and dogmeat} YOU CAN OPEN THE SENTIENT DOOR AND LEAVE IF YOU WISH!
+# CLEAR
 ->endgame
 + Go through the eastern doorway
 ->Room2Green
@@ -49,6 +51,14 @@ What should you do?
 =cleandoor
 
 You clean the door. While you do, the door makes all sorts of groans and sighs. 
+
++ You splash some soapy water on the door.
+"OooOoohhhhmmm that's warm."
++ + You scrub a bit.
+"Y-yeah, just there!"
++ + + You wipe down the front.
+"Mmmmmmmmmmmmmmmyeah I like that."
++ + + + You are finished.
 "Oh, thank you!" says the door. "I'm clean now!"
 ...
 ->Room1Blue
@@ -88,9 +98,9 @@ He'll let you leave.
 + "Hello door!"
 "Hello!"
 + + "How are you?"
-{not cleandoor: "Oh, ohhh, I'm soooo dirty, I simply WON'T open unless I get MUCH cleaner first."} {cleandoor: "Oh, ohh, I'm soooo CLEAN, I'm simply SPARKLING, thank you SO much for sponging me up and down."}
+{not cleandoor: "Oh, ohhh, I'm <i>soooo</i> dirty, I simply <i>WON'T</i> open unless I get <i>much</i> cleaner first."} {cleandoor: "Oh, ohh, I'm soooo CLEAN, I'm simply SPARKLING, thank you SO much for sponging me up and down."}
 + + + "I see."
-{not unlock: "I'm locked, you should know. There's a blue key out there somewhere that will unlock me."} {unlock: "You unlocked me! How sweet of you! I like you SO much more now!"}
+{not unlock: "I'm locked, you should know. There's a blue key out there somewhere that will unlock me."} {unlock: "You unlocked me! How sweet of you! I like you <i>sooo</i> much more now!"}
 + + + + "Interesting."
 {not dogmeat: "That doggy there, I'm afraid it just WON'T let you past until you get it something to eat."} {dogmeat: "You fed that sweet puppy some red meat! How KIND of you! I think he'll just ADORE you FOREVER now!"}
 + + + + + "Fascinating."
@@ -115,9 +125,9 @@ You pick up the sponge. This will be good for cleaning things.
 ->->
 
 =Room2Green
-
+#IMAGE: greenroom.jpg
 You are in a green room. 
-There is an angry man in the corner{key:.}{not key:, holding a blue key.}
+There is an angry man in the corner, {not key: holding a blue key.} {key: looking at you expectantly.}
 There is a doorway to the east, and a doorway to the west. 
 
 + Talk to the man
@@ -134,11 +144,11 @@ There is a doorway to the east, and a doorway to the west.
 "Hello."
 "Grrr! I'm an angry man! I'm very angry!"
 + "Why are you angry?"
-"I can't get out of this maze! I don't like red meat! I don't like dogs! I don't like cleaning or talking to doors! All I've found is this key!"
+"I <b>can't</b> get out of this maze! I <b>don't</b> like red meat! I <b>don't</b> like dogs! I <b>don't</b> like cleaning or talking to <b>doors!</b> All I've found is {not key: this key!"} {key: that blue key I gave you!"}
     * * ["I will solve all the puzzles if you give me that key."]
     ->key
     + + ["That sounds terrible. You poor thing."]
-        "Grr! Grr!"
+        "<b>Grr! Grr!</b>"
         + + + [He doesn't say anything else. Oh well.]
         
         ...
@@ -164,7 +174,7 @@ There is a doorway to the east, and a doorway to the west.
 ->END
 
 =Room3Red
-
+#IMAGE: redroom.jpg
 You are in a red room. 
 The room is full of plates of delicious fresh red meat.
 There is a doorway to the east, and a doorway to the west.
@@ -220,7 +230,7 @@ You are not very certain whether that means there is actually less meat now than
 ->->
 
 =Room4Yellow
-
+# IMAGE: yellowroom.jpg
 You are in a yellow room.
 + Look around
 ->exploreyellowroom
@@ -245,7 +255,7 @@ There is a doorway to the east, and a doorway to the west.
 ->Room4Yellow
 
 =endgame
-
+#IMAGE: whiteroom.jpg
 You open the big blue clean sentient unlocked door, and step out of the Puzzle Rooms, free at last.
 It was an escape room type place. The staff member asks you to complete a satisfaction survey.
 
