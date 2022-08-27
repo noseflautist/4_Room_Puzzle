@@ -248,7 +248,7 @@ There is a doorway to the east, and a doorway to the west.
 
 =CleaningSupplies
 {not looped_around_rooms:
-    <i>{Oh, ratbags! | Oh, buttocks! | Oh, tarnation! | Oh, badoodle! | Oh, fartsicles! | Oh, fiddlesticks!}</i>
+    <i>{&Oh, ratbags! | Oh, buttocks! | Oh, tarnation! | Oh, badoodle! | Oh, fartsicles! | Oh, fiddlesticks! | Oh, punchable peanuts! | 大便!}</i> //TODO: add more here!
 
     It's <b>empty.</b>
 }
