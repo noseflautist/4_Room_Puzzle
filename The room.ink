@@ -233,13 +233,12 @@ You are not very certain whether that means there is actually less meat now than
 =Room3Yellow
 # IMAGE: yellowroom.jpg
 You are in a yellow room.
-{not sponge: There is a sponge on the floor.}
-{not bucket: There is a bucket of soapy water on the floor.}
+There is a closet labelled "CLEANING SUPPLIES" that's {not looped_around_rooms: been left halfway open.}{looped_around_rooms: firmly shut.}
+
 There is a doorway to the east, and a doorway to the west.
-* {not bucket} Pick up the bucket
-->bucket ->Room3Yellow
-* {not sponge} Pick up the sponge
-->sponge ->Room3Yellow
+
++ [Look in the closet] You look in the closet.
+->CleaningSupplies
 + Go through the eastern doorway
 ->Room4Red
 + Go through the western doorway
@@ -247,6 +246,24 @@ There is a doorway to the east, and a doorway to the west.
 + Check what you're carrying
 -> inventory ->Room3Yellow
 
+=CleaningSupplies
+{not looped_around_rooms:
+    <i>{Oh, ratbags! | Oh, buttocks! | Oh, tarnation! | Oh, badoodle! | Oh, fartsicles! | Oh, fiddlesticks!}</i>
+
+    It's <b>empty.</b>
+}
+{looped_around_rooms:
+    {not sponge: There is a sponge here.}
+    {not bucket: There is a bucket of soapy water here.}
+    {sponge && bucket: It's empty.}
+    * {not bucket} Pick up the bucket
+    ->bucket ->CleaningSupplies
+    * {not sponge} Pick up the sponge
+    ->sponge ->CleaningSupplies
+}
++ [Back to the room]
+...
+->Room3Yellow
 
 =endgame
 #IMAGE: whiteroom.jpg
