@@ -9,7 +9,7 @@ In your inventory, you have:
 {sponge: a sponge,}
 {meat: lots of delicious fresh red meat,}
 {key: a blue key,}
-+ [and that's everything.]
++ and that's everything.
 ...
 ->->
 
@@ -19,7 +19,8 @@ VAR first_loop_event_done = false
 =Room1Blue
 #IMAGE: bluedoor.jpg
 
-You are in a blue room. There is a  big blue {not cleandoor: dirty} {cleandoor: CLEAN} sentient {not unlock: locked} {unlock: UNLOCKED} door, {not dogmeat: guarded by a nice doggy.} {dogmeat: NO LONGER GUARDED BY a nice happy dog eating red meat who loves you and will let you past.} 
+You are in a blue room.
+There is a  big blue {not cleandoor: dirty} {cleandoor: CLEAN} sentient {not unlock: locked} {unlock: UNLOCKED} door, {not dogmeat: guarded by a nice doggy.} {dogmeat: NO LONGER GUARDED BY a nice happy dog eating red meat who loves you and will let you past.} 
 
     {looped_around_rooms && not first_loop_event_done:<i>Wait... haven't you seen this before?</i>}
     
@@ -30,27 +31,29 @@ You are in a blue room. There is a  big blue {not cleandoor: dirty} {cleandoor: 
 There is one other open doorway to the east (lucky you have your compass{not looped_around_rooms:!}{looped_around_rooms:...?})
 {looped_around_rooms: There doesn't seem to be a doorway to the west.}
 What should you do?
-+ Talk to doggy
++ [Talk to doggy]
 ->talkdoggy ->Room1Blue
-+ Talk to the door
++ [Talk to the door]
 ->talkdoor ->Room1Blue
-* {sponge and bucket and not cleandoor} Clean the dirty blue door
+* {sponge and bucket and not cleandoor} [Clean the dirty blue door]
 ->cleandoor
-* {key and not unlock} Use the blue key to unlock the blue door
+* {key and not unlock} [Use the blue key to unlock the blue door]
 ->unlock
 //+ Go through the southern doorway.
 //->Room3Yellow
 * {unlock and cleandoor and dogmeat} YOU CAN OPEN THE SENTIENT DOOR AND LEAVE IF YOU WISH!
 # CLEAR
 ->endgame
-+ Go through the eastern doorway
++ [Go through the eastern doorway] You go through the eastern doorway.
 ->Room2Green
-+ Check what you're carrying
++ [Check what you're carrying]
 -> inventory ->Room1Blue
 
 =cleandoor
 
-You clean the door. While you do, the door makes all sorts of groans and sighs. 
+You clean the door.
+
+While you do, the door makes all sorts of groans and sighs. 
 
 + You splash some soapy water on the door.
 "OooOoohhhhmmm that's warm."
@@ -72,7 +75,7 @@ You put the blue key in the door, and turn it. The door is now unlocked.
 "Hi doggy!"
 The dog wags its tail.
 
-* {meat} Give the dog some of the delicious red meat you have.
+* {meat} [Give the dog some of the delicious red meat you have] You give the dog some of the delicious red meat you have.
 ->dogmeat
 + {not meat} This dog is a guard dog. He won't let you leave until you give him something he wants.
 ...
@@ -86,25 +89,26 @@ The dog wags its tail.
 
 =dogmeat
 
-You give the dog the meat. 
 He eats the meat.
 He likes you now.
 He'll let you leave.
 
-+ ["I like you too, doggy!"]
++ "I like you too, doggy!"
+...
 ->Room1Blue 
 
 =talkdoor
-+ "Hello door!"
+"Hello door!"
 "Hello!"
-+ + "How are you?"
++ "How are you?"
 {not cleandoor: "Oh, ohhh, I'm <i>soooo</i> dirty, I simply <i>WON'T</i> open unless I get <i>much</i> cleaner first."} {cleandoor: "Oh, ohh, I'm soooo CLEAN, I'm simply SPARKLING, thank you SO much for sponging me up and down."}
-+ + + "I see."
++ + "I see."
 {not unlock: "I'm locked, you should know. There's a blue key out there somewhere that will unlock me."} {unlock: "You unlocked me! How sweet of you! I like you <i>sooo</i> much more now!"}
-+ + + + "Interesting."
++ + + "Interesting."
 {not dogmeat: "That doggy there, I'm afraid it just WON'T let you past until you get it something to eat."} {dogmeat: "You fed that sweet puppy some red meat! How KIND of you! I think he'll just ADORE you FOREVER now!"}
-+ + + + + "Fascinating."
++ + + + "Fascinating."
 "How am I, otherwise? I'm fine, dear."
++ + + + + [Cool beans!]
 
 ...
 ->->
@@ -132,11 +136,11 @@ There is a doorway to the east, and a doorway to the west.
 
 + Talk to the man
 ->manchat ->Room2Green
-+ Go through the eastern doorway
++ [Go through the eastern doorway] You go through the eastern doorway.
 -> Room3Yellow
-+ Go through the western doorway
++ [Go through the western doorway] You go through the western doorway.
 -> Room1Blue
-+ Check what you're carrying
++ [Check what you're carrying]
 -> inventory ->Room2Green
 
 =manchat
@@ -164,7 +168,8 @@ There is a doorway to the east, and a doorway to the west.
         "Will you let me leave with you?"
         + + + "Yes."
         "Thank you!"
-        He gives you the blue key. 
+        He gives you the blue key.
+        ...
         ->->
         + + + "No."
         "Then I won't ever EVER EVER give you the key!"
@@ -184,12 +189,12 @@ There is a doorway to the east, and a doorway to the west.
 {not infinimeat: ->infinimeat ->Room4Red}
 {not infinimeat2: ->infinimeat2 ->Room4Red}
 {infinimeat2: -> paradoxvisited -> Room4Red}
-+ Go through the eastern doorway
++ [Go through the eastern doorway] You go through the eastern doorway.
 ~ looped_around_rooms = true
 -> Room1Blue
-+ Go through the western doorway
++ [Go through the western doorway] You go through the western doorway.
 -> Room3Yellow
-+ Check what you're carrying
++ [Check what you're carrying]
 -> inventory ->Room4Red
 
 
@@ -239,11 +244,11 @@ There is a doorway to the east, and a doorway to the west.
 
 + [Look in the closet] You look in the closet.
 ->CleaningSupplies
-+ Go through the eastern doorway
++ [Go through the eastern doorway] You go through the eastern doorway.
 ->Room4Red
-+ Go through the western doorway
++ [Go through the western doorway] You go through the western doorway.
 ->Room2Green
-+ Check what you're carrying
++ [Check what you're carrying]
 -> inventory ->Room3Yellow
 
 =CleaningSupplies
