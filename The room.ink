@@ -238,7 +238,7 @@ You are not very certain whether that means there is actually less meat now than
 =Room3Yellow
 # IMAGE: yellowroom.jpg
 You are in a yellow room.
-There is a closet labelled "CLEANING SUPPLIES" that's {not looped_around_rooms: been left halfway open.}{looped_around_rooms: firmly shut.}
+There is a closet labelled "CLEANING SUPPLIES" that {not looped_around_rooms: someone has left halfway open.}{looped_around_rooms: is now firmly shut.}
 
 There is a doorway to the east, and a doorway to the west.
 
