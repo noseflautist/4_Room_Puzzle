@@ -4,7 +4,7 @@
 =inventory
 
 In your inventory, you have:
-{not looped_around_rooms:A working compass,}{looped_around_rooms: A working (?) compass} //TODO: Click on the compass to do some cool shit? Maybe only while you're in paradox?
+{not looped_around_rooms:A working compass,}{looped_around_rooms: A working (?) compass,} //TODO: Click on the compass to do some cool shit? Maybe only while you're in paradox?
 {bucket: a bucket full of warm soapy water,}
 {sponge: a sponge,}
 {meat: lots of delicious fresh red meat,}
@@ -16,7 +16,7 @@ In your inventory, you have:
 VAR looped_around_rooms = false
 VAR first_loop_event_done = false
 
-=Room1Blue //was NWroom
+=Room1Blue
 #IMAGE: bluedoor.jpg
 
 You are in a blue room. There is a  big blue {not cleandoor: dirty} {cleandoor: CLEAN} sentient {not unlock: locked} {unlock: UNLOCKED} door, {not dogmeat: guarded by a nice doggy.} {dogmeat: NO LONGER GUARDED BY a nice happy dog eating red meat who loves you and will let you past.} 
@@ -133,7 +133,7 @@ There is a doorway to the east, and a doorway to the west.
 + Talk to the man
 ->manchat ->Room2Green
 + Go through the eastern doorway
--> Room3Red
+-> Room4Yellow
 + Go through the western doorway
 -> Room1Blue
 + Check what you're carrying
@@ -185,9 +185,10 @@ There is a doorway to the east, and a doorway to the west.
 {not infinimeat2: ->infinimeat2 ->Room3Red}
 {infinimeat2: -> paradoxvisited -> Room3Red}
 + Go through the eastern doorway
--> Room4Yellow
+~ looped_around_rooms = true
+-> Room1Blue
 + Go through the western doorway
--> Room2Green
+-> Room4Yellow
 + Check what you're carrying
 -> inventory ->Room3Red
 
@@ -240,10 +241,9 @@ There is a doorway to the east, and a doorway to the west.
 * {not sponge} Pick up the sponge
 ->sponge ->Room4Yellow
 + Go through the eastern doorway
-~ looped_around_rooms = true
-->Room1Blue
-+ Go through the western doorway
 ->Room3Red
++ Go through the western doorway
+->Room2Green
 + Check what you're carrying
 -> inventory ->Room4Yellow
 
