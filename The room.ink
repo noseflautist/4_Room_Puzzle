@@ -39,7 +39,7 @@ What should you do?
 * {key and not unlock} Use the blue key to unlock the blue door
 ->unlock
 //+ Go through the southern doorway.
-//->Room4Yellow
+//->Room3Yellow
 * {unlock and cleandoor and dogmeat} YOU CAN OPEN THE SENTIENT DOOR AND LEAVE IF YOU WISH!
 # CLEAR
 ->endgame
@@ -133,7 +133,7 @@ There is a doorway to the east, and a doorway to the west.
 + Talk to the man
 ->manchat ->Room2Green
 + Go through the eastern doorway
--> Room4Yellow
+-> Room3Yellow
 + Go through the western doorway
 -> Room1Blue
 + Check what you're carrying
@@ -173,24 +173,24 @@ There is a doorway to the east, and a doorway to the west.
         
 ->END
 
-=Room3Red
+=Room4Red
 #IMAGE: redroom.jpg
 You are in a red room. 
 The room is full of plates of delicious fresh red meat.
 There is a doorway to the east, and a doorway to the west.
 
 + Pick up {not meat: a} {meat: another} plate of meat
-{not meat: ->meat ->Room3Red}
-{not infinimeat: ->infinimeat ->Room3Red}
-{not infinimeat2: ->infinimeat2 ->Room3Red}
-{infinimeat2: -> paradoxvisited -> Room3Red}
+{not meat: ->meat ->Room4Red}
+{not infinimeat: ->infinimeat ->Room4Red}
+{not infinimeat2: ->infinimeat2 ->Room4Red}
+{infinimeat2: -> paradoxvisited -> Room4Red}
 + Go through the eastern doorway
 ~ looped_around_rooms = true
 -> Room1Blue
 + Go through the western doorway
--> Room4Yellow
+-> Room3Yellow
 + Check what you're carrying
--> inventory ->Room3Red
+-> inventory ->Room4Red
 
 
 =meat
@@ -230,22 +230,22 @@ You are not very certain whether that means there is actually less meat now than
 ...
 ->->
 
-=Room4Yellow
+=Room3Yellow
 # IMAGE: yellowroom.jpg
 You are in a yellow room.
 {not sponge: There is a sponge on the floor.}
 {not bucket: There is a bucket of soapy water on the floor.}
 There is a doorway to the east, and a doorway to the west.
 * {not bucket} Pick up the bucket
-->bucket ->Room4Yellow
+->bucket ->Room3Yellow
 * {not sponge} Pick up the sponge
-->sponge ->Room4Yellow
+->sponge ->Room3Yellow
 + Go through the eastern doorway
-->Room3Red
+->Room4Red
 + Go through the western doorway
 ->Room2Green
 + Check what you're carrying
--> inventory ->Room4Yellow
+-> inventory ->Room3Yellow
 
 
 =endgame
