@@ -232,8 +232,13 @@ You are not very certain whether that means there is actually less meat now than
 =Room4Yellow
 # IMAGE: yellowroom.jpg
 You are in a yellow room.
-+ Look around
-->exploreyellowroom
+{not sponge: There is a sponge on the floor.}
+{not bucket: There is a bucket of soapy water on the floor.}
+There is a doorway to the east, and a doorway to the west.
+* {not bucket} Pick up the bucket
+->bucket ->Room4Yellow
+* {not sponge} Pick up the sponge
+->sponge ->Room4Yellow
 + Go through the eastern doorway
 ~ looped_around_rooms = true
 ->Room1Blue
@@ -242,17 +247,6 @@ You are in a yellow room.
 + Check what you're carrying
 -> inventory ->Room4Yellow
 
-=exploreyellowroom
-You look around. 
-{not sponge: There is a sponge on the floor.}
-{not bucket: There is a bucket of soapy water on the floor.}
-There is a doorway to the east, and a doorway to the west.
-* {not bucket} Pick up the bucket
-->bucket ->Room4Yellow
-* {not sponge} Pick up the sponge
-->sponge ->Room4Yellow
-+ And that's all.
-->Room4Yellow
 
 =endgame
 #IMAGE: whiteroom.jpg
