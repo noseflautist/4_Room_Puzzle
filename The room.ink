@@ -17,19 +17,21 @@ VAR looped_around_rooms = false
 VAR first_loop_event_done = false
 
 =Room1Blue
-#IMAGE: bluedoor.jpg
+#IMAGE: images/bluedoor.jpg
 
 You are in a blue room.
 There is a  big blue {not cleandoor: dirty} {cleandoor: CLEAN} sentient {not unlock: locked} {unlock: UNLOCKED} door, {not dogmeat: guarded by a nice doggy.} {dogmeat: NO LONGER GUARDED BY a nice happy dog eating red meat who loves you and will let you past.} 
 
     {looped_around_rooms && not first_loop_event_done:<i>Wait... haven't you seen this before?</i>}
     
+There is one other open doorway to the east (lucky you have your compass{not looped_around_rooms:!}{looped_around_rooms:...?})
+
+    {looped_around_rooms && not first_loop_event_done: There doesn't seem to be a doorway to the west...}
+    
     {looped_around_rooms && not first_loop_event_done:
-        ~ first_loop_event_done = true
+    ~ first_loop_event_done = true
     } //Make sure "Wait... haven't you seen this before?" only shows once.
 
-There is one other open doorway to the east (lucky you have your compass{not looped_around_rooms:!}{looped_around_rooms:...?})
-{looped_around_rooms: There doesn't seem to be a doorway to the west.}
 What should you do?
 + [Talk to doggy]
 ->talkdoggy ->Room1Blue
@@ -114,22 +116,8 @@ He'll let you leave.
 ->->
 
 
-=bucket
-
-You pick up the bucket. It is full of warm soapy water. This will be good for cleaning things.
-
-...
-->->
-
-=sponge
-
-You pick up the sponge. This will be good for cleaning things.
-
-...
-->->
-
 =Room2Green
-#IMAGE: greenroom.jpg
+#IMAGE: images/greenroom.jpg
 You are in a green room. 
 There is an angry man in the corner, {not key: holding a blue key.} {key: looking at you expectantly.}
 There is a doorway to the east, and a doorway to the west. 
@@ -179,12 +167,12 @@ There is a doorway to the east, and a doorway to the west.
 ->END
 
 =Room4Red
-#IMAGE: redroom.jpg
+#IMAGE: images/redroom.jpg
 You are in a red room. 
 The room is full of plates of delicious fresh red meat.
 There is a doorway to the east, and a doorway to the west.
 
-+ Pick up {not meat: a} {meat: another} plate of meat
++ [Pick up {not meat: a} {meat: another} plate of meat]
 {not meat: ->meat ->Room4Red}
 {not infinimeat: ->infinimeat ->Room4Red}
 {not infinimeat2: ->infinimeat2 ->Room4Red}
@@ -236,7 +224,7 @@ You are not very certain whether that means there is actually less meat now than
 ->->
 
 =Room3Yellow
-# IMAGE: yellowroom.jpg
+# IMAGE: images/yellowroom.jpg
 You are in a yellow room.
 There is a closet labelled "CLEANING SUPPLIES" that {not looped_around_rooms: someone has left halfway open.}{looped_around_rooms: is now firmly shut.}
 
@@ -261,17 +249,31 @@ There is a doorway to the east, and a doorway to the west.
     {not sponge: There is a sponge here.}
     {not bucket: There is a bucket of soapy water here.}
     {sponge && bucket: It's empty.}
-    * {not bucket} Pick up the bucket
+    * [{not bucket} Pick up the bucket] You pick up the bucket.
     ->bucket ->CleaningSupplies
-    * {not sponge} Pick up the sponge
+    * [{not sponge} Pick up the sponge] You pick up the sponge.
     ->sponge ->CleaningSupplies
 }
 + [Back to the room]
 ...
 ->Room3Yellow
 
+=bucket
+
+It is full of warm soapy water. This will be good for cleaning things.
+
+...
+->->
+
+=sponge
+
+This will be good for cleaning things.
+
+...
+->->
+
 =endgame
-#IMAGE: whiteroom.jpg
+#IMAGE: images/whiteroom.jpg
 You open the big blue clean sentient unlocked door, and step out of the Puzzle Rooms, free at last.
 It was an escape room type place. The staff member asks you to complete a satisfaction survey.
 
