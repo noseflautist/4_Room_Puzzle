@@ -65,6 +65,7 @@ While you do, the door makes all sorts of groans and sighs.
 "Mmmmmmmmmmmmmmmyeah I like that."
 + + + + You are finished.
 "Oh, thank you!" says the door. "I'm clean now!"
++ + + + + [You sure are.]
 ...
 ->Room1Blue
 
@@ -249,9 +250,9 @@ There is a doorway to the east, and a doorway to the west.
     {not sponge: There is a sponge here.}
     {not bucket: There is a bucket of soapy water here.}
     {sponge && bucket: It's empty.}
-    * [{not bucket} Pick up the bucket] You pick up the bucket.
+    * {not bucket} [Pick up the bucket] You pick up the bucket.
     ->bucket ->CleaningSupplies
-    * [{not sponge} Pick up the sponge] You pick up the sponge.
+    * {not sponge} [Pick up the sponge] You pick up the sponge.
     ->sponge ->CleaningSupplies
 }
 + [Back to the room]
