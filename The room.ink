@@ -43,7 +43,7 @@ What should you do?
 ->unlock
 //+ Go through the southern doorway.
 //->Room3Yellow
-* {unlock and cleandoor and dogmeat} YOU CAN OPEN THE SENTIENT DOOR AND LEAVE IF YOU WISH!
++ {unlock and cleandoor and dogmeat} YOU CAN OPEN THE SENTIENT DOOR AND LEAVE IF YOU WISH!
 # CLEAR
 ->endgame
 + [Go through the eastern doorway] You go through the eastern doorway.
@@ -249,7 +249,7 @@ There is a doorway to the east, and a doorway to the west.
 {looped_around_rooms:
     {not sponge: There is a sponge here.}
     {not bucket: There is a bucket of soapy water here.}
-    {sponge && bucket: It's empty.}
+    {sponge && bucket: The closet is empty.}
     * {not bucket} [Pick up the bucket] You pick up the bucket.
     ->bucket ->CleaningSupplies
     * {not sponge} [Pick up the sponge] You pick up the sponge.
@@ -310,6 +310,47 @@ You fill out the survey with your rating.
 
 You walk out the front door of the building.
 
+"That's it!", you think.
+
+"I've won!"
+->victoryidle
+
+=victoryidle
+
++ [Bask in your victory] You bask in your victory.
+-> bask
++ [Go back in] You go back in.
+->whiteroom
+
+=whiteroom
+You are standing in a white room.
+There is an angry man standing here.
+There is a door that leads outside, and a door marked "PUZZLE ROOMS"
++ [Talk to the angry man]
+-> whiteroomangry
++ [Go outside] You go outside.
+-> victoryidle
++ [Go through the door marked "PUZZLE ROOMS"] You go though the door marked "PUZZLE ROOMS".
+->Room1Blue
+
+=whiteroomangry
+"I AM A WORK IN PROGRESS", he says.
++ <i>"You sure are,"</i> you think to yourself.
+...
+->whiteroom
++ "No, you're a winner. We both are! I'm done!"
++ + And sure enough, you both are.
+You win!
+->ending
+
+=bask
+It feels pretty good.
+Looks like it's going to rain soon, though.
++ [Okay.]
+...
+->victoryidle
+
+=ending
 # CLASS: end
 The End
 
