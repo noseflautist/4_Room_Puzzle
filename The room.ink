@@ -249,7 +249,7 @@ There is a doorway to the east, and a doorway to the west.
 {looped_around_rooms:
     {not sponge: There is a sponge here.}
     {not bucket: There is a bucket of soapy water here.}
-    {sponge && bucket: It's empty.}
+    {sponge && bucket: The closet is empty.}
     * {not bucket} [Pick up the bucket] You pick up the bucket.
     ->bucket ->CleaningSupplies
     * {not sponge} [Pick up the sponge] You pick up the sponge.
